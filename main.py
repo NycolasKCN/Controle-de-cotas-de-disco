@@ -1,4 +1,4 @@
-from os import close, system
+from os import system
 
 
 class Sistema():
