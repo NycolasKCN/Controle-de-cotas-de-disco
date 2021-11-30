@@ -26,7 +26,7 @@ class Sistema():
             exit()
 
         except FileExistsError:
-            print("Arquivo de dados não foi não existe")
+            print("Arquivo de dados não existe")
             exit()
 
         return nomes, bites
