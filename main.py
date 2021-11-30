@@ -4,12 +4,12 @@ from os import system
 class Sistema():
 
     def lerDados(self, nome_arq="usuarios.txt"):
-        """Recebe como parametro um nome de um arquivo e retorna os nomes e os bytes do
-        arquivo
+        """
+        Recebe como parametro um nome de um arquivo e retorna os nomes e os bytes doarquivo
 
-        name: tem que receber o nome do arquivo
+        :param name: tem que receber o nome do arquivo
 
-        RETURN: retonar duas listas, nomes e bites
+        :return: retonar duas listas, nomes e bites
         """
         nomes = []
         bites = []
@@ -31,18 +31,21 @@ class Sistema():
 
         return nomes, bites
 
-    def bytesParaMegabytes(self, bytes=0.0):
-        """Recebe um valor em bytes e retorna esse valor em megabytes
-        bytes: um numero inteiro ou float
-        RETURN: retorna o valor em megabytes"""
+    def bytesParaMegabytes(self, bytes=0.0 | float):
+        """
+        Recebe um valor em bytes e retorna esse valor em megabytes
+        :param bytes: float or int
+        :return: retorna o valor em megabytes
+        """
         bites = float(bytes)
         megaBytes = float(bites * (10 ** -6))
         return megaBytes
 
-    def porcetagemDeUso(self, mega_bytes=0.0):
-        """Recebe uma lista com valores, soma e então retona a porcetagem de cada valor de acordo com o total
-        mega_bytes: Recebe uma lista com valores
-        RETURN: retorna uma lista com a porcetagem de cada valor, e o valor total da soma
+    def porcetagemDeUso(self, mega_bytes=0.0 | list):
+        """
+        Recebe uma lista com valores, soma e então retona a porcetagem de cada valor de acordo com o total
+        :param mega_bytes: Recebe uma lista com valores
+        :return: retorna uma lista com a porcetagem de cada valor, e o valor total da soma
         """
         mb = mega_bytes
         mb_total = 0
@@ -60,9 +63,14 @@ class Sistema():
         return porcetagem, mb_total, media
 
     def formatarArquivo(self, name_arq="relátorio.txt", user=[], bites=[]):
-        """recebe o nome do arquivo de saida, a lista de nomes e bites utilizados por cada usuario
+        """
+        recebe o nome do arquivo de saida, a lista de nomes e bites utilizados por cada usuario
         e tem como saida a criação de um arquivo com o nome dado
-        RETURN: None """
+        :param name_arq: str
+        :param user: list
+        :param bites: list
+        :return: None
+        """
         megaBytes = []
 
         for item in bites:
@@ -102,8 +110,10 @@ class Sistema():
                 "Espaco medio ocupado: {:.2f} MB".format(media))
 
     def run(self):
-        """Inicia o programa
-        RETURN: None"""
+        """
+        Inicia o programa
+        :return: None
+        """
         system("cls")
         self.nomeArquivo = input(
             "Digite o nome do arquivo: (enter para padrão) ")
