@@ -3,13 +3,13 @@ from os import system
 
 class Sistema():
 
-    def lerDados(self, nome_arq="usuarios.txt"):
+    def lerDados(self, nome_arq: str = "usuarios.txt") -> tuple[list, list]:
         """
-        Recebe como parametro um nome de um arquivo e retorna os nomes e os bytes doarquivo
+        Recebe como parâmetro um nome de um arquivo e 
+        retorna os nomes e os bytes contidos no arquivo.
 
-        :param name: tem que receber o nome do arquivo
-
-        :return: retonar duas listas, nomes e bites
+        :param name: recebe por padrão 'usuarios.txt'
+        :return: retona duas listas. Uma contem nome de usuário e a segunda os bytes.
         """
         nomes = []
         bites = []
@@ -31,21 +31,23 @@ class Sistema():
 
         return nomes, bites
 
-    def bytesParaMegabytes(self, bytes=0.0 | float):
+    def bytesParaMegabytes(self, bytes: float = 0.0) -> float:
         """
-        Recebe um valor em bytes e retorna esse valor em megabytes
-        :param bytes: float or int
+        Recebe um valor em bytes e retorna esse valor em megabytes.
+
+        :param bytes: por padrão recebe 0.0
         :return: retorna o valor em megabytes
         """
         bites = float(bytes)
         megaBytes = float(bites * (10 ** -6))
         return megaBytes
 
-    def porcetagemDeUso(self, mega_bytes=0.0 | list):
+    def porcetagemDeUso(self, mega_bytes: list = []) -> tuple[list, float, float]:
         """
-        Recebe uma lista com valores, soma e então retona a porcetagem de cada valor de acordo com o total
-        :param mega_bytes: Recebe uma lista com valores
-        :return: retorna uma lista com a porcetagem de cada valor, e o valor total da soma
+        Recebe uma lista com valores, soma e então retorna a porcentagem de cada valor segundo o total.
+
+        :param mega_bytes: recebe uma lista com valores. Por padrão, uma lista vazia.
+        :return: retorna uma lista com a porcetagem de cada valor, e o valor total da soma junto com a média.
         """
         mb = mega_bytes
         mb_total = 0
@@ -62,13 +64,14 @@ class Sistema():
         media = mb_total / c
         return porcetagem, mb_total, media
 
-    def formatarArquivo(self, name_arq="relátorio.txt", user=[], bites=[]):
+    def formatarArquivo(self, name_arq: str = "relátorio.txt", user: list = [], bites: list = []) -> None:
         """
-        recebe o nome do arquivo de saida, a lista de nomes e bites utilizados por cada usuario
-        e tem como saida a criação de um arquivo com o nome dado
-        :param name_arq: str
-        :param user: list
-        :param bites: list
+        Recebe o nome do arquivo de saida, a lista de nomes e bites utilizados por cada usuário
+        e tem como saída a criação de um arquivo com o nome recebido
+
+        :param name_arq: por padrão será "relátorio.txt"
+        :param user: lista de usuarios
+        :param bites: lista de bites ordenados
         :return: None
         """
         megaBytes = []
@@ -109,7 +112,7 @@ class Sistema():
             relatorio.write(
                 "Espaco medio ocupado: {:.2f} MB".format(media))
 
-    def run(self):
+    def run(self) -> None:
         """
         Inicia o programa
         :return: None
