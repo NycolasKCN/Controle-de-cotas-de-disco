@@ -10,7 +10,7 @@ Lê um arquivo.txt onde contém o nome de usuário e em seguida o espaço ocupad
 Python puro.
 
 ## :rocket: Rodando o projeto
-Para rodar o repositório é necessário clonar o mesmo.
+Para rodar o programa é necessário clonar o repositório.
 Já na pasta do repositório, delete o arquivo: "relátorio.txt", em seguida dê o seguinte comando:
 ```
 python3 main.py
